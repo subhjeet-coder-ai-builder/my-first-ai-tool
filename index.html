@@ -1,55 +1,67 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>BBSR-OD AI Business Generator - Global</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-body { background:#0f0f0f; color:white; font-family:Arial; text-align:center; padding:30px; }
-.box { background:#1e1e1e; max-width:400px; margin:auto; padding:20px; border-radius:15px; }
-input { width:90%; padding:12px; margin:8px; border-radius:8px; border:none; }
-button { background:#00ff88; color:black; padding:12px 25px; border:none; border-radius:8px; font-weight:bold; cursor:pointer; }
-#result { background:black; margin-top:15px; padding:15px; border-radius:10px; color:#00ff88; text-align:left; }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BBSR-OD AI - Business Idea Generator</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background: #0f172a; color: white; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; padding: 20px; }
+        .card { background: #1e293b; padding: 30px; border-radius: 20px; width: 100%; max-width: 400px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); border: 1px solid #334155; }
+        h1 { text-align: center; font-size: 24px; margin-bottom: 5px; }
+        .tagline { text-align: center; color: #94a3b8; font-size: 12px; margin-bottom: 20px; letter-spacing: 1px; }
+        input { width: 100%; padding: 12px; margin: 8px 0; border-radius: 10px; border: 1px solid #334155; background: #0f172a; color: white; box-sizing: border-box; }
+        button.main-btn { width: 100%; padding: 14px; background: linear-gradient(90deg, #6366f1, #8b5cf6); border: none; border-radius: 10px; color: white; font-weight: bold; font-size: 16px; cursor: pointer; margin-top: 10px; }
+        #result { margin-top: 20px; padding: 15px; background: #0f172a; border-radius: 10px; display: none; border: 1px solid #334155; }
+        .pay-box { margin-top: 15px; padding: 15px; background: linear-gradient(135deg, #1e3a8a, #312e81); border-radius: 12px; text-align: center; display: none; }
+        .pay-btn { display: block; width: 100%; padding: 12px; background: #22c55e; color: black; font-weight: bold; border-radius: 8px; text-decoration: none; margin-top: 10px; }
+        .upi { font-size: 13px; color: #fde68a; margin-top: 8px; word-break: break-all; }
+    </style>
 </head>
 <body>
-<h1>🔥 BBSR-OD AI Business Generator 🔥</h1>
-<p>Built in Bhubaneswar, Used Worldwide</p>
-
-<div class="box">
-<input id="name" placeholder="Your Name?">
-<input id="skill" placeholder="Your Skill? e.g. video editing, teaching">
-<input id="budget" placeholder="Your Budget? e.g. 500">
-<br>
-<button onclick="generate()">Generate Idea!</button>
-<div id="result">Your AI business idea will appear here...</div>
-</div>
+    <div class="card">
+        <h1>🚀 BBSR-OD AI</h1>
+        <div class="tagline">BUILT IN BHUBANESWAR, USED WORLDWIDE</div>
+        <input id="name" placeholder="Your Name? (e.g. Alex)">
+        <input id="skill" placeholder="Your Skill? (e.g. video editing)">
+        <input id="budget" placeholder="Budget? (e.g. 100)">
+        <button class="main-btn" onclick="generate()">Generate Idea! ✨</button>
+        
+        <div id="result"></div>
+        
+        <div id="payBox" class="pay-box">
+            <div>🔥 Want Full 30-Day Business Plan?</div>
+            <div style="font-size:12px; margin-top:5px; color:#cbd5e1">PDF + Daily Tasks + Where to get clients</div>
+            <a id="upiLink" class="pay-btn" href="#" target="_blank">Pay Rs 99 via UPI</a>
+            <div class="upi">UPI ID: <b id="upiId">subhjeet@upi</b> (Change this to yours)</div>
+            <a id="waLink" href="#" target="_blank" style="color:#86efac; font-size:12px; display:block; margin-top:10px; text-decoration:underline">After Payment, Send Screenshot on WhatsApp</a>
+        </div>
+    </div>
 
 <script>
-function generate(){
- let name = document.getElementById('name').value || 'Friend';
- let skill = document.getElementById('skill').value.toLowerCase();
- let budget = document.getElementById('budget').value || '$10';
- let idea="", earning="";
+    const MY_UPI = "sekharpanda828-1@okaxis"; // <-- YAHAN APNA UPI ID DAAL DE
+    const MY_WHATSAPP = "919692500408"; // <-- YAHAN APNA WHATSAPP NUMBER 91 ke saath
 
- if(skill.includes('video') || skill.includes('editing')){
-   idea = "YouTube Shorts + Reels Editing Agency";
-   earning = "$200-$500/month";
- } else if(skill.includes('teach') || skill.includes('study')){
-   idea = "Online Micro-Course Platform (Class 1-10)";
-   earning = "$150/month";
- } else {
-   idea = skill + " Freelance Service Agency";
-   earning = "$100-$300/month";
- }
+    function generate(){
+        const name = document.getElementById('name').value || 'friend';
+        const skill = document.getElementById('skill').value || 'your skill';
+        const budget = document.getElementById('budget').value || '100';
+        
+        const ideas = [
+            `YouTube Shorts + Reels Editing Agency for ${skill} creators`,
+            `${skill} + AI Automation Service for local businesses`,
+            `Instagram Theme Pages using ${skill}`,
+            `Freelancing on Fiverr with ${skill} skill`
+        ];
+        const idea = ideas[Math.floor(Math.random()*ideas.length)];
 
- document.getElementById('result').innerHTML = 
-   `<b>Hello ${name}!</b><br><br>
-    <b>IDEA:</b> ${idea}<br>
-    <b>Budget:</b> ${budget}<br>
-    <b>Potential Earning:</b> ${earning}<br><br>
-    <b>Tip:</b> Start free on Instagram & Fiverr, no investment needed!<br><br>
-    This tool was built in BBSR-OD to earn in dollars!`;
-}
+        document.getElementById('result').style.display = 'block';
+        document.getElementById('result').innerHTML = `<b>Hello ${name}!</b><br><br>IDEA: <span style="color:#a5b4fc">${idea}</span><br><br>Budget: $${budget}<br>Potential: <span style="color:#4ade80">$200-$500/month</span>`;
+        
+        document.getElementById('payBox').style.display = 'block';
+        document.getElementById('upiId').innerText = MY_UPI;
+        document.getElementById('upiLink').href = `upi://pay?pa=${MY_UPI}&pn=BBSR-OD%20AI&am=99&cu=INR`;
+        document.getElementById('waLink').href = `https://wa.me/${MY_WHATSAPP}?text=Hi! I paid Rs 99 for ${idea}. Send me full plan.`;
+    }
 </script>
 </body>
 </html>
