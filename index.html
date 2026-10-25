@@ -1,37 +1,56 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>BBSR-OD AI Tool</title>
+<title>BBSR-OD AI Business Generator - Global</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-body{font-family:Arial;background:#111;color:#fff;text-align:center;padding:30px}
-.box{background:#222;padding:20px;border-radius:15px;max-width:400px;margin:auto}
-input{width:90%;padding:10px;margin:10px;border-radius:8px;border:none}
-button{padding:12px 25px;background:#00ff88;color:#000;font-weight:bold;border:none;border-radius:10px;cursor:pointer}
-#result{margin-top:20px;background:#000;padding:15px;border-radius:10px;color:#00ff88}
+body { background:#0f0f0f; color:white; font-family:Arial; text-align:center; padding:30px; }
+.box { background:#1e1e1e; max-width:400px; margin:auto; padding:20px; border-radius:15px; }
+input { width:90%; padding:12px; margin:8px; border-radius:8px; border:none; }
+button { background:#00ff88; color:black; padding:12px 25px; border:none; border-radius:8px; font-weight:bold; cursor:pointer; }
+#result { background:black; margin-top:15px; padding:15px; border-radius:10px; color:#00ff88; text-align:left; }
 </style>
 </head>
 <body>
 <h1>🔥 BBSR-OD AI Business Generator 🔥</h1>
+<p>Built in Bhubaneswar, Used Worldwide</p>
+
 <div class="box">
-<input id="name" placeholder="Tera naam?">
-<input id="skill" placeholder="Skill? video editing, teaching, farming">
-<input id="budget" type="number" placeholder="Budget? jaise 500">
-<button onclick="generate()">Idea Bana!</button>
-<div id="result"></div>
+<input id="name" placeholder="Your Name?">
+<input id="skill" placeholder="Your Skill? e.g. video editing, teaching">
+<input id="budget" placeholder="Your Budget? e.g. 500">
+<br>
+<button onclick="generate()">Generate Idea!</button>
+<div id="result">Your AI business idea will appear here...</div>
 </div>
+
 <script>
 function generate(){
-let name=document.getElementById('name').value;
-let skill=document.getElementById('skill').value.toLowerCase();
-let budget=parseInt(document.getElementById('budget').value);
-let idea, earning, tip;
-if(skill.includes('video')||skill.includes('editing')){idea="YouTube Shorts + Reels Agency";earning="$200/month";}
-else if(skill.includes('teach')||skill.includes('study')){idea="BBSR-OD Online Tuition App";earning="$150/month";}
-else{idea=skill+" Service Website";earning="$100/month";}
-if(budget<1000){tip="Bina paise ke Instagram se start kar, free hai!";}
-else{tip="Domain + Logo me laga, pro lagega!";}
-document.getElementById('result').innerHTML=`Hello ${name}!<br><br>IDEA: <b>${idea}</b><br>Budget: Rs ${budget}<br>Earning: ${earning}<br><br>Tip: ${tip}<br><br>Ye tool BBSR-OD se hi dollar kama sakta hai!`;
+ let name = document.getElementById('name').value || 'Friend';
+ let skill = document.getElementById('skill').value.toLowerCase();
+ let budget = document.getElementById('budget').value || '$10';
+ let idea="", earning="";
+
+ if(skill.includes('video') || skill.includes('editing')){
+   idea = "YouTube Shorts + Reels Editing Agency";
+   earning = "$200-$500/month";
+ } else if(skill.includes('teach') || skill.includes('study')){
+   idea = "Online Micro-Course Platform (Class 1-10)";
+   earning = "$150/month";
+ } else {
+   idea = skill + " Freelance Service Agency";
+   earning = "$100-$300/month";
+ }
+
+ document.getElementById('result').innerHTML = 
+   `<b>Hello ${name}!</b><br><br>
+    <b>IDEA:</b> ${idea}<br>
+    <b>Budget:</b> ${budget}<br>
+    <b>Potential Earning:</b> ${earning}<br><br>
+    <b>Tip:</b> Start free on Instagram & Fiverr, no investment needed!<br><br>
+    This tool was built in BBSR-OD to earn in dollars!`;
 }
 </script>
 </body>
+</html>
 </html>
