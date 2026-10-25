@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>BBSR-OD AI Tool</title>
+<style>
+body{font-family:Arial;background:#111;color:#fff;text-align:center;padding:30px}
+.box{background:#222;padding:20px;border-radius:15px;max-width:400px;margin:auto}
+input{width:90%;padding:10px;margin:10px;border-radius:8px;border:none}
+button{padding:12px 25px;background:#00ff88;color:#000;font-weight:bold;border:none;border-radius:10px;cursor:pointer}
+#result{margin-top:20px;background:#000;padding:15px;border-radius:10px;color:#00ff88}
+</style>
+</head>
+<body>
+<h1>🔥 BBSR-OD AI Business Generator 🔥</h1>
+<div class="box">
+<input id="name" placeholder="Tera naam?">
+<input id="skill" placeholder="Skill? video editing, teaching, farming">
+<input id="budget" type="number" placeholder="Budget? jaise 500">
+<button onclick="generate()">Idea Bana!</button>
+<div id="result"></div>
+</div>
+<script>
+function generate(){
+let name=document.getElementById('name').value;
+let skill=document.getElementById('skill').value.toLowerCase();
+let budget=parseInt(document.getElementById('budget').value);
+let idea, earning, tip;
+if(skill.includes('video')||skill.includes('editing')){idea="YouTube Shorts + Reels Agency";earning="$200/month";}
+else if(skill.includes('teach')||skill.includes('study')){idea="BBSR-OD Online Tuition App";earning="$150/month";}
+else{idea=skill+" Service Website";earning="$100/month";}
+if(budget<1000){tip="Bina paise ke Instagram se start kar, free hai!";}
+else{tip="Domain + Logo me laga, pro lagega!";}
+document.getElementById('result').innerHTML=`Hello ${name}!<br><br>IDEA: <b>${idea}</b><br>Budget: Rs ${budget}<br>Earning: ${earning}<br><br>Tip: ${tip}<br><br>Ye tool BBSR-OD se hi dollar kama sakta hai!`;
+}
+</script>
+</body>
+</html>
